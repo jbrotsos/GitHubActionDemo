@@ -8,6 +8,8 @@ on:
   push:
     branches: [ master, main ]
   pull_request:
+    #branches: [ master, main ]
+    types: [opened, reopened, synchronize]
     branches: [ master, main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel - this job is specifically configured to use the Checkmarx CxFlow Action
@@ -32,6 +34,7 @@ jobs:
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+        github_token: ${{ secrets.GH_TOKEN }}
         params: --checkmarx.incremental=false
     # Upload the Report for CodeQL/Security Alerts
     - name: Upload SARIF file

@@ -36,5 +36,7 @@ jobs:
           checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
           checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
           checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+          incremental: false
+          scanners: sast
           github_token: ${{ secrets.GH_TOKEN }}
           params: --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.head_ref }} --bug-tracker=GITHUBPULL --merge-id=${{ env.PR_NUMBER }}

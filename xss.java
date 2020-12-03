@@ -19,7 +19,7 @@ public class BookDetail_jsp extends HttpJspBase {
 	public static void loadData () {
 
 		String userData = request.getParameter("Data"); 
-		//out.println (userData);
+		out.println (userData);
 		printSanitizedName(userData);
 	}
 	public static void loadName () {

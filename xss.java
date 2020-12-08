@@ -33,55 +33,55 @@ public class BookDetail_jsp extends HttpJspBase {
 
 		String userAccount = request.getParameter("Account"); 
 
-		//printSanitizedName(userAccount);
+		printSanitizedName(userAccount);
 	}
 
 	public static void loadNumber () {
 
 		String userNumber = request.getParameter("Number"); 
 
-		//printSanitizedName(userNumber);
+		printSanitizedName(userNumber);
 	}
 
 	public static void loadField () {
 
 		String userField = request.getParameter("Field"); 
 
-		//printSanitizedName(userField);
+		printSanitizedName(userField);
 	}
 
 	public static void loadComments () {
 
 		String userComment = request.getParameter("Comment"); 
 
-		//printSanitizedName(userComment);
+		printSanitizedName(userComment);
 	}
 
 	public static void loadLink () {
 
 		String userLink = request.getParameter("Link"); 
 
-		//printSanitizedName(userLink);
+		printSanitizedName(userLink);
 	}
 
 	public static void loadProfile () {
 
 		String userProfile = request.getParameter("Profile"); 
 
-		//printSanitizedName(userProfile);
+		printSanitizedName(userProfile);
 	}
 
 	public static void loadReport () {
 
 		String userReport = request.getParameter("Report"); 
 
-		//printSanitizedName(userReport);
+		printSanitizedName(userReport);
 	}
 
 	public static void loadInfo () {
 
 		String userInfo = request.getParameter("Info"); 
 
-		//printSanitizedName(userInfo);
+		printSanitizedName(userInfo);
 	}
 }

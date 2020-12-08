@@ -28,21 +28,8 @@ jobs:
         github_token: ${{ secrets.GH_TOKEN }}
         incremental: false
         params:  --namespace=${{ env.ORG_NAME }} --repo-name=${{ env.REPO_NAME }}  --branch=${{ github.ref }} 
-    #- name: Upload SARIF file
-    #  uses: github/codeql-action/upload-sarif@v1
-    #  with:
-    #    sarif_file: cx.sarif
-    - name: Add SCW Training
-      uses: SecureCodeWarrior/github-action-add-sarif-contextual-training@v1
-      with:
-        inputSarifFile: cx.sarif
-        outputSarifFile: scw.sarif
-        githubToken: ${{ secrets.GH_TOKEN }}
-    - name: Import Results
+    - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: scw.sarif
-    - name: Download a single artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: scw.sarif
+        sarif_file: cx.sarif
+

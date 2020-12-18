@@ -1,0 +1,19 @@
+name: Build Source Code
+
+# Controls when the action will run. Triggers the workflow on push or pull request events but only for the master branch
+on:
+  pull_request:
+    types: [opened, reopened, synchronize] #Types specify which pull request events will trigger the workflow. For more events refer Github Actions documentation.
+    branches:
+    - master
+    - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel - this job is specifically configured to use the Checkmarx CxFlow Action
+jobs:
+  # This workflow contains a single job called "build"
+  Build_Source:
+    runs-on: ubuntu-latest
+    name: Hello World
+    steps:
+      - name: Hello
+        run: echo "Hello World"

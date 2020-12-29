@@ -68,7 +68,7 @@ public class BookDetail_jsp extends HttpJspBase {
 
 		String userProfile = request.getParameter("Profile"); 
 
-		printSanitizedName(userProfile);
+		//printSanitizedName(userProfile);
 	}
 
 	public static void loadReport () {

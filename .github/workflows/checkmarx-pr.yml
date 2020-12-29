@@ -43,4 +43,4 @@ jobs:
         break_build: false
         scanners: sast
         bug_tracker: GITHUBPULL
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }}
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --codebashing.codebashingApiUrl="https://api.codebashing.com/lessons" --codebashing.tenantBaseUrl="https://xxxxx.codebashing.com" --codebashing.apiSecret="SECRET"

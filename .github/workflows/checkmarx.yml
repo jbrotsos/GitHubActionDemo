@@ -43,4 +43,4 @@ jobs:
         scanners: sast
         bug_tracker: Jira
         #params: --config=cx.config --checkmarx.settings-override=true --jira.assignee="james.brotsos@checkmarx.com --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
-        params: --config=cx.config --jira.assignee="jim.harris@checkmarx.com" --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
+        params: --config=cx.config --checkmarx.jira-assignee-field="jim.harris@checkmarx.com"--jira.assignee="jim.harris@checkmarx.com" --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 

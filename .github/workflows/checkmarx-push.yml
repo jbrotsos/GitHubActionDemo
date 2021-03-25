@@ -42,4 +42,4 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: GitHub
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --codebashing.codebashingApiUrl="https://api.codebashing.com/lessons" --codebashing.tenantBaseUrl="https://xxxxx.codebashing.com" --codebashing.apiSecret="SECRET"
+        params: --cx-flow.zip-exclude=".github/" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --codebashing.codebashingApiUrl="https://api.codebashing.com/lessons" --codebashing.tenantBaseUrl="https://xxxxx.codebashing.com" --codebashing.apiSecret="SECRET"

@@ -12,21 +12,23 @@ public class BookDetail_jsp extends HttpJspBase {
 
 	private static void printSanitizedName (String str) {
 
-		//String sanitizedUserData = Security.validName(str);
+		String sanitizedUserData = Security.validName(str);
+		//String sanitizedUserData = escapeHtml4(str);
 		out.println (sanitizedUserData);
 	}
 
 	public static void loadData () {
 
 		String userData = request.getParameter("Data"); 
-		out.println (userData);
+		//out.println (userData);
+
 		printSanitizedName(userData);
 	}
 	public static void loadName () {
 
 		String userName = request.getParameter("Name"); 
-		out.println (userName);
 
+		// this is a test
 		printSanitizedName(userName);
 	}
 
@@ -34,7 +36,7 @@ public class BookDetail_jsp extends HttpJspBase {
 
 		String userAccount = request.getParameter("Account"); 
 
-		//printSanitizedName(userAccount);
+		printSanitizedName(userAccount);
 	}
 
 	public static void loadNumber () {
@@ -48,7 +50,7 @@ public class BookDetail_jsp extends HttpJspBase {
 
 		String userField = request.getParameter("Field"); 
 
-		//printSanitizedName(userField);
+		printSanitizedName(userField);
 	}
 
 	public static void loadComments () {
@@ -79,9 +81,16 @@ public class BookDetail_jsp extends HttpJspBase {
 		printSanitizedName(userReport);
 	}
 
-	public static void loadInfo () {
+	public static void loadInfoxxx () {
 
 		String userInfo = request.getParameter("Info"); 
+
+		//printSanitizedName(userInfo);
+	}
+	
+	public static void xxxloadInfo () {
+
+		String userInfo = request.getParameter("xxxInfo"); 
 
 		printSanitizedName(userInfo);
 	}

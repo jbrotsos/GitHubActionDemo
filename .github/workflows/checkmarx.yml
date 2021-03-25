@@ -11,7 +11,7 @@
 #
 # For full documentation, including a list of all inputs, please refer to the README https://github.com/checkmarx-ts/checkmarx-cxflow-github-action
 
-name: CxFlow-GitHub-Issue-Push
+name: Checkmarx Security Scan
 # Controls when the action will run. Triggers the workflow on push or pull request events but only for the master branch
 on:
   push:
@@ -42,4 +42,4 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: Jira
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
+        params: -config=cx.config  --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 

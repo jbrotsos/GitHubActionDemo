@@ -49,5 +49,5 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: Jira
-        params: --config=cx.config --assignee="jim.harris@checkmarx.com --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
+        params: --config=cx.config --assignee="jim.harris@checkmarx.com" --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} 
         #--assignee=${{ github.actor }}

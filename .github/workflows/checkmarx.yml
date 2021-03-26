@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     # Steps require - checkout code, run CxFlow Action, Upload SARIF report (optional)
     steps:
+    - run: env
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - name: Checkmarx CxFlow Action

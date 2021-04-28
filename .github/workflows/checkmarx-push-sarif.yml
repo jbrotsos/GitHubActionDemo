@@ -2,7 +2,7 @@
 #
 # The following GitHub Secrets must be first defined:
 #   - CHECKMARX_URL
-#   - CHECKMARX_USER
+#   - CHECKMARX_USERNAME
 #   - CHECKMARX_PASSWORD
 #   - CHECKMARX_CLIENT_SECRET
 #   - GH_TOKEN
@@ -41,5 +41,12 @@ jobs:
         github_token: ${{secrets.GH_TOKEN}}  # To be stored in GitHub Secrets.
         incremental: false
         scanners: sast
-        bug_tracker: GitHub
-        params: --cx-flow.zip-exclude=".github/" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --codebashing.codebashingApiUrl="https://api.codebashing.com/lessons" --codebashing.tenantBaseUrl="https://xxxxx.codebashing.com" --codebashing.apiSecret="SECRET"
+        bug_tracker: Sarif
+        params: --cx-flow.zip-exclude=".github/" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }}
+                # --cx-flow.filter-severity=High --cx-flow.filter-severity=Medium --cx-flow.filter-severity=Low
+   
+    # Upload the Report for CodeQL/Security Alerts
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: cx.sarif

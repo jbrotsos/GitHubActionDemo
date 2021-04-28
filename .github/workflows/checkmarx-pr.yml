@@ -2,7 +2,7 @@
 #
 # The following GitHub Secrets must be first defined:
 #   - CHECKMARX_URL
-#   - CHECKMARX_USER
+#   - CHECKMARX_USERNAME
 #   - CHECKMARX_PASSWORD
 #   - CHECKMARX_CLIENT_SECRET
 #   - GH_TOKEN
@@ -24,7 +24,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel - this job is specifically configured to use the Checkmarx CxFlow Action
 jobs:
   # This workflow contains a single job called "build"
-  Checkmarx_SAST_Scan:
+  build:
     # The type of runner that the job will run on - Ubuntu is required as Docker is leveraged for the action
     runs-on: ubuntu-latest
     steps:
@@ -33,8 +33,9 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
       with:
-        project: ${{ github.repository }}-PR
-        team: /CxServer
+        project: ${{ github.event.repository.name }}-${{ github.head_ref }}
+        team: /CxServer/cxflow/jbrotsos
+        preset: Checkmarx Default
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}   # To be stored in GitHub Secrets.
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}  # To be stored in GitHub Secrets.
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}  # To be stored in GitHub Secrets.
@@ -42,5 +43,5 @@ jobs:
         incremental: false
         break_build: false
         scanners: sast
-        bug_tracker: GITHUBPULL
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --codebashing.codebashingApiUrl="https://api.codebashing.com/lessons" --codebashing.tenantBaseUrl="https://xxxxx.codebashing.com" --codebashing.apiSecret="SECRET"
+        bug_tracker: GitHubPull
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }}v

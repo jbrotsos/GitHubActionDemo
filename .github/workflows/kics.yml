@@ -1,8 +1,10 @@
 name: Scan with KICS 
 
 on:
-  pull_request:
-    branches: [master, main]
+  push:
+    branches:
+    - main
+    - master
 
 jobs:
   kics-job:

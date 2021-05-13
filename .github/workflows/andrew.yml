@@ -27,3 +27,4 @@ jobs:
         scanners: sast  
         incremental: false
         github_token: ${{secrets.GITHUB_TOKEN}}
+        params: --checkmarx.settings-override=true

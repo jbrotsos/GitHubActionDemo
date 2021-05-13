@@ -25,4 +25,4 @@ jobs:
         scanners: sast  
         incremental: false
         github_token: ${{secrets.GITHUB_TOKEN}}
-        params: --checkmarx.exclude-folders="src/" --checkmarx.exclude-files".java"
+        params: --checkmarx.exclude-folders="src/" --checkmarx.exclude-files".java" --checkmarx.settings-override=true

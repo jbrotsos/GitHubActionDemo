@@ -8,6 +8,8 @@ on:
 jobs:
   SAST:
     runs-on: ubuntu-latest
+    env:
+        CHECKMARX_EXCLUDE_FOLDERS: "src/"
     steps:
   # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
@@ -25,4 +27,3 @@ jobs:
         scanners: sast  
         incremental: false
         github_token: ${{secrets.GITHUB_TOKEN}}
-        params: --exclude-folders=src/

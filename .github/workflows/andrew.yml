@@ -1,37 +1,33 @@
 name: CheckmarxFlow
-	on:
-	# Triggers the workflow on push or pull request events but only for the master branch
-		push:
-			branches: [ main ]
-		pull_request:
-			branches: [ main ]
+on:
+# Triggers the workflow on push or pull request events but only for the master branch
+    push:
+      branches: [ main ]
+    pull_request:
+      branches: [ main ]
 	
 	# Allows you to run this workflow manually from the Actions tab
 	#  workflow_dispatch:
 	
 	# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-	jobs:
-	# This workflow contains a single job called "build"
-		SAST:
-			# The type of runner that the job will run on
-			runs-on: ubuntu-latest
-	
-	# Steps represent a sequence of tasks that will be executed as part of the job
-			steps:
-			# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-				- uses: actions/checkout@v2
-				- name: Checkmarx CxFlow Action
-					uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
-					with:
-						checkmarx_url: http://jbrotsos.ngrok.io
-						team: /CxServer
-						checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
-						checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
-						checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-						project: AndyT
-						preset: All
-						break_build: false
-						scanners: sast  
-						incremental: false
-						github_token: ${{secrets.GITHUB_TOKEN}}
-						params: --cx-flow.exclude-folders="test"
+jobs:
+  SAST:
+    runs-on: ubuntu-latest
+    steps:
+  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    - name: Checkmarx CxFlow Action
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
+      with:
+        checkmarx_url: http://jbrotsos.ngrok.io
+        team: /CxServer
+        checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
+        checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
+        checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+        project: AndyT
+        preset: All
+        break_build: false
+        scanners: sast  
+        incremental: false
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        params: --cx-flow.exclude-folders="test

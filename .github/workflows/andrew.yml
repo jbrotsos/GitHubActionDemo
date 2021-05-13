@@ -25,4 +25,4 @@ jobs:
         scanners: sast  
         incremental: false
         github_token: ${{secrets.GITHUB_TOKEN}}
-        params: --cx-flow.exclude-folders="src/"
+        params: --checkmarx.exclude-folders="src/"

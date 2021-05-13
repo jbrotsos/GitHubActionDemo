@@ -25,4 +25,4 @@ jobs:
         scanners: sast  
         incremental: false
         github_token: ${{secrets.GITHUB_TOKEN}}
-        params: --exclude-folders='src/'
+        params: --exclude-folders=src/

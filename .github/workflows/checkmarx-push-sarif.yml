@@ -42,7 +42,7 @@ jobs:
         incremental: false
         scanners: sast
         bug_tracker: Sarif
-        params: --cx-flow.zip-exclude=".github/" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --checkmarx.scan-preset="High and Medium" --checkmarx.exclude-files=*.java --checkmarx.settings-override=true
+        params: --cx-flow.zip-exclude=".github/" --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --checkmarx.scan-preset=All --checkmarx.exclude-files=*.java --checkmarx.settings-override=true
                 # --cx-flow.filter-severity=High --cx-flow.filter-severity=Medium --cx-flow.filter-severity=Low
    
     # Upload the Report for CodeQL/Security Alerts
